@@ -114,12 +114,12 @@ function Test(){
 		async:false,
 		dataType:'json',
 		success:function(result){
-			
+			 
 			try{
 				for ( var i = 0; i < markers.length; i++ ) {
 		    	markers[i].setMap(null);
 		    	infowindows[i].setMap(null);
-					 }  
+				}
 				
 				markers=[];
 				infowindows=[];
@@ -135,7 +135,7 @@ function Test(){
 		            spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
 		            spriteOrigin : new kakao.maps.Point(0, (i*46)+10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
 		            offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
-				    }
+		        }
 				    
 				    // 마커 이미지를 생성합니다    
 				    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions); 
@@ -265,10 +265,11 @@ $(function(){
 	$("#divPagingMap").on("click", ".numberPage", function(){
 	var z=$(this).text();
 	console.log(z);
-	$("#pageNum").val(z);
+	
 	Test2();
+	if(lastPage<z) z=lastPage;
 	
-	
+	$("#pageNum").val(z);
 	Test();
 	$("#pageNum").val(1);
 	});
@@ -277,6 +278,7 @@ $(function(){
 	$("#divPagingMap").on("click",".nextPage",function(){
 	var z = (block+1)*5+1;
 	block=block+1;
+	
 	$("#pageNum").val(z);
 	Test2();
 	
