@@ -7,6 +7,4 @@ import com.javassem.domain.StoreVO;
 
 public interface StoreDAO {
 
-	public List<StoreVO> StoreList(StoreVO vo);
-	
 }
