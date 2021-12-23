@@ -89,10 +89,10 @@
                         <c:forEach items="${ShopList}" var="shop">
 							<li>
 							<ul>
-						
-								<li class="left">${shop.shopName }</li>
+								
+								<li class="left">${shop.shopname }</li>
 								<li class="left">${shop.shopaddr }</li>
-								<li class="left">${shop.shopdate }</li>
+								<li class="left">${shop.jobDate }</li>
 								<li class="left">${shop.shoppay }</li>
 								<button class="button">지원</button>
 							</ul>
