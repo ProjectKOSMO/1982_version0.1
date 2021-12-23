@@ -10,7 +10,15 @@ public class ShopVO {
 	private int shopnum;
 	private String shoppay;
 	private String shopdate;
+	private String jobDate;
+	private String normal_emergency;
 	
+	public String getJobDate() {
+		return jobDate;
+	}
+	public void setJobDate(String jobDate) {
+		this.jobDate = jobDate;
+	}
 	public String getShopname() {
 		return shopName;
 	}
@@ -70,6 +78,12 @@ public class ShopVO {
 	}
 	public void setShopdate(String shopdate) {
 		this.shopdate = shopdate;
+	}
+	public String getNormal_emergency() {
+		return normal_emergency;
+	}
+	public void setNormal_emergency(String normal_emergency) {
+		this.normal_emergency = normal_emergency;
 	}
 
 	

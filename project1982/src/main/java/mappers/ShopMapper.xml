@@ -7,7 +7,7 @@
 <select id="ShopList" resultType="com.javassem.domain.ShopVO"  parameterType="com.javassem.domain.StoreVO">
 		
 		SELECT *
-		FROM shopInfo
+		FROM board_owner
 	<!-- 	<where>
 			<if test="searchCondition != null">
 				${searchCondition} LIKE '%${searchKeyword}%'
