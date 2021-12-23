@@ -19,14 +19,17 @@ import com.javassem.service.OwnerService;
 @Controller
 @RequestMapping("owner")
 public class OwnerLoginController {
-
+	
+	@Autowired
+	public OwnerService ownerService;
+	
+	
 	@RequestMapping("{step}.do")
 	public String ownerJoin(@PathVariable String step) {
 		return "/owner/" + step;
 	}
 
-	@Autowired
-	public OwnerService ownerService;
+	
 
 	// 업자의 업체 정보 출력 게시판 : 만약, 등록 업체가 있다면 업체 게시판으로, 아니라면 업체 등록 페이지로
 	// 이동--------------------------------------------------------------------------------------------------------------
@@ -52,25 +55,45 @@ public class OwnerLoginController {
 	// ---------------------------------------------------------------------
 
 	@RequestMapping("shopInsert.do")
-	public String ownerInsert(OwnerVO vo, Model model) {
-		
-		System.out.println(vo.getShopname());
-		
+	public String ownerInsert(OwnerVO vo, Model model){
+
 		ownerService.insertShopInfo(vo); // 업체정보 인설트
-
+		
 		List<OwnerVO> list = ownerService.getList(vo);
-		model.addAttribute("shopList", list);
-
+		model.addAttribute("shopList",list);
+		
 		return "redirect:ownerList.do";
 	}
 
 	@RequestMapping("ownerUpdate.do")
-	public String ownerViewPage(OwnerVO vo) {
-		ownerService.selectShopInfo(vo); // 업체정보 셀렉트
-
-		return "redirect:ownerViewPage.do";
+	public String ownerUpdatePage(OwnerVO vo,Model model,HttpServletRequest request) throws Exception{
+		
+		HttpSession session = request.getSession();
+		
+		Integer ownernum = (Integer)session.getAttribute("ownernum");
+		vo.setOwnernum(ownernum);
+		List<OwnerVO> list = ownerService.getList(vo);
+		model.addAttribute("shopInfo",list);
+		
+		return "/owner/ownerUpdate";
 
 	}
+	
+	
+	@RequestMapping("shopUpdate.do")
+	public String shopUpdate(OwnerVO vo,Model model,HttpServletRequest request) throws Exception{
+		
+		ownerService.updateShopInfo(vo);
+		List<OwnerVO> list= ownerService.getList(vo);
+		
+		Thread.sleep(5000);
+		
+		return "redirect:ownerList.do";
+
+	}
+	
+	
+	
 
 	@RequestMapping("ownerList.do")
 	public String getList(OwnerVO vo, Model model, HttpServletRequest request) throws Exception {

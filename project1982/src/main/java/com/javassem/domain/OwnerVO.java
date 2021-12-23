@@ -23,7 +23,7 @@ public class OwnerVO {
 	private String shoppn;
 	private String shopcontent;
 	private String shopnum;
-	
+	private String shopupdate;
 
 	
 	public String getShopnum() {
@@ -55,7 +55,7 @@ public class OwnerVO {
 			//***********************************************
 			// 해당 경로로 변경
 //			File f = new File("D:\\project1982\\project1982\\src\\main\\webapp\\resources\\upload\\"+si_realname);
-			File f = new File("C:\\Users\\Kosmo\\git\\project1982\\project1982\\src\\main\\webapp\\resources\\upload\\"+si_realname);
+			File f = new File("C:\\Users\\Kosmo\\Desktop\\git\\project1982\\src\\main\\webapp\\resources\\upload\\"+si_realname);
 
 			
 			try {

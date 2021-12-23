@@ -249,3 +249,6 @@ ul, li{
   background-color: lime;
   border-radius: 25px;
 }
+.hide{
+	display:none;
+}
