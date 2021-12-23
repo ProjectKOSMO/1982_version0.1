@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Location">
+		
+	<select id="getLocationList" parameterType="SongLocationVO" resultType="SongLocationVO" >
+			
+			SELECT *
+			FROM locationTest
+			<where>
+				<if test="searchCondition != null">
+					${searchCondition} LIKE '%${searchKeyword}%'
+				</if>
+			</where>
+	</select> 
+	
+	<select id="getLocationListCount" parameterType="SongLocationVO" resultType="int" >
+			
+			SELECT count(road_address)
+			FROM locationTest
+			<where>
+				<if test="searchCondition != null">
+					${searchCondition} LIKE '%${searchKeyword}%'
+				</if>
+			</where>
+	</select> 
+	
+	<insert id="insertLocation" parameterType="SongLocationVO" >
+	insert into locationTest(location_y, location_x, road_address, shop_name, shop_phone_number)
+	values(#{location_y},#{location_x},#{road_address},#{shop_name},#{shop_phone_number})
+	</insert>
+	
+</mapper>

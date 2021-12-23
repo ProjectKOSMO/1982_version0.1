@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hold">
+	
+	<!-- 매칭성공률 그래프 -->
+	<select id="matching" resultType="int">
+		SELECT matching FROM matchPercent
+	</select>
+	
+	<select id="wholeApply" resultType="int">
+		SELECT whole_apply FROM matchPercent
+	</select>
+	
+	<select id="matching_percent" resultType="int">
+		SELECT matching_success FROM matchPercent
+	</select>
+
+
+	<!-- 재이용률 그래프 -->
+	<select id="reusing" resultType="int">
+	SELECT reusing from reusing
+	</select> 
+	
+	<select id="wholeUse" resultType="int">
+	SELECT whole_use from reusing
+	</select>
+	
+	<select id="reusePercent" resultType="int">
+	SELECT reusing_ratio from reusing
+	</select>
+</mapper>

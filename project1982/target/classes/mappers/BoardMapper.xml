@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardDAO">
+
+	
+	<!-- oracle 인 경우 	
+	<insert id="insertBoard" parameterType="board">
+		INSERT INTO BOARD(SEQ, TITLE, WRITER, CONTENT, REGDATE, CNT)
+		VALUES(board_seq.nextval,
+			#{title}, #{writer}, #{content}, 
+			sysdate, 0)
+	</insert> -->
+	
+	
+	<insert id="insertBoard" parameterType="BoardVO">
+		INSERT INTO uploadtemp(b_name, b_email, b_title, b_content, b_pwd, b_date, b_count
+		<if test="b_fname != null">
+		, b_fname, b_fsize, b_realfname
+		</if>)
+		VALUES(#{b_name}, #{b_email}, #{b_title}, #{b_content}, #{b_pwd}, now(), 1
+		<if test="b_fname != null">
+		, #{b_fname}, #{b_fsize}, #{b_realfname}
+		</if>
+		)
+	</insert>
+	
+	<update id="updateBoard" parameterType="BoardVO">
+		<![CDATA[
+		UPDATE uploadtemp SET
+		b_title = #{b_title},
+		b_content = #{b_content}
+		WHERE b_id = #{b_id}
+		]]>
+	</update>
+	
+	<delete id="deleteBoard" parameterType="BoardVO">
+		DELETE FROM uploadtemp
+		WHERE b_id = #{b_id}
+	</delete>
+	
+	<select id="getBoard" resultType="BoardVO">
+		<![CDATA[
+		SELECT *
+		FROM uploadtemp
+		WHERE b_id = #{b_id}
+		]]>
+	</select>
+	
+	
+<!-- 	<select id="getBoardList" resultType="board"  >
+			
+			SELECT *
+			FROM BOARD
+			ORDER BY SEQ DESC
+		
+	</select> -->
+	
+	<!-- 검색 추가  -->
+	<!-- 
+		# : PreparedStatement를 사용할때 -> 문자열인 경우 자동으로 '' 붇음
+		$ : Statement를 사용 -> 문자열인 경우도 '' 안 붙음
+	 -->
+	<select id="getBoardList" resultType="BoardVO"  parameterType="hashmap">
+		SELECT * FROM (SELECT @rownum:=@rownum+1 RN, A.* FROM
+		(SELECT * FROM uploadtemp ORDER BY b_id DESC) A, (SELECT @rownum:=0) r) B
+		where
+			<if test="searchCondition != null">
+		 		B.${searchCondition} LIKE '%${searchKeyword}%' AND
+		 	</if>
+		B.RN BETWEEN ${start} AND ${end};
+			
+	</select>
+		<select id="countboard" resultType="int">
+		SELECT COUNT(*) FROM uploadtemp
+	</select>
+	
+
+	
+</mapper>
