@@ -67,5 +67,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				AND o.ownerNum = #{ownernum} 
 			</where>
 	</select>
+	
+	<update id="shopUpdate"  parameterType="OwnerVO" >
+
+	<choose>
+    <when test="si_fname == null">
+    	<![CDATA[
+		update shopInfo set shopname =#{shopname}
+					, shopaddr =#{shopaddr}
+					, shoppn =#{shoppn} 
+					, shopcontent =#{shopcontent}
+					, shopupdate= now()
+					where ownernum =#{ownernum}
+		]]>	
+	</when>
+   
+    <otherwise>	
+    <![CDATA[
+		update shopInfo set shopname =#{shopname}
+					, shopaddr =#{shopaddr}
+					, shoppn =#{shoppn} 
+					, shopcontent =#{shopcontent}
+					, shopupdate= now()
+					, si_fname = #{si_fname}
+					, si_realname=#{si_realname}
+		where ownernum =#{ownernum}
+		]]>	</otherwise>
+	</choose>
+					
+	</update>
+	
 
 </mapper>

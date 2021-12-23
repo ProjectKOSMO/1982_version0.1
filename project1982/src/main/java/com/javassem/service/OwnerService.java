@@ -14,6 +14,7 @@ public interface OwnerService {
 	List<OwnerBoardVO> getOwnerBoardList(OwnerBoardVO vo);
 	
 	public int insertShopInfo(OwnerVO vo);
+	public int updateShopInfo(OwnerVO vo);
 	public String selectShopInfo(OwnerVO vo);
 	public List<OwnerVO> getList(OwnerVO vo);
 

@@ -53,7 +53,7 @@
     <!-- 메인 ---------------------------------------------------------------->
         <main>
       
-        <form action="shopInsert.do" method='post' enctype="multipart/form-data"> 
+        <form action="shopUpdate.do" method='post' enctype="multipart/form-data"> 
             <ul class="left_nav">
                 <li class="left_nav_text"><a class="home" href="#">홈</a></li>
                 <li class="left_nav_text"><a href="#">새소식</a></li>
@@ -64,27 +64,26 @@
             <div class="body_container"> <!-- 페이지 컨테이너 시작-->
          
                 <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
-                    <div>업체 등록 / 수정</div>
+                    <div>업체 정보 수정</div>
                         <div class="body_container_center_shop_contanier">
                             <div class="body_container_center_shop_contanier_img">
-                     
-				
-							<input type="file" name="file" maxlength="60" size="40">
-						
-                 
-                            </div>
+                     			<img width="70%" height="70%" src="/project1982/resources/upload/${shopInfo[0].si_realname }">
+								<input type="file" name="file" maxlength="60" size="40">
+					        </div>
+                    
+                    
                             <div class= "body_container_center_shop_contanier_info">
-                                <div>업체 이름: <input type="text" name="shopname"> </div>
+                                <div>업체 이름: <input type="text" name="shopname" value="${shopInfo[0].shopname }"> </div>
                                     
-                                <div>업체 주소: <input type="text" name="shopaddr"><button>주소확인</button></div>                                
-                                <div>업체 연락처: <input type="text" name="shoppn"></div>                             
+                                <div>업체 주소: <input type="text" name="shopaddr" value="${shopInfo[0].shopaddr }"><button>주소확인</button></div>                                
+                                <div>업체 연락처: <input type="text" name="shoppn" value="${shopInfo[0].shoppn }"></div>                             
                                 <div class="body_container_center_shop_contanier_info_ta">업체 소개: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <textarea name="shopcontent" id="" cols="30" rows="10"></textarea>     
+                                    <textarea name="shopcontent" id="" cols="30" rows="10" >${shopInfo[0].shopcontent }</textarea>     
 
-                                 <div class="hide" >담당자 번호: <input type="text" name="ownernum" value = "${ownernum}"></div>   
+                                 <div class="hide">담당자 번호: <input type="text" name="ownernum" value = "${ownernum}"></div>   
                                 </div>                                
                                 
-                                                     <button>업체 등록 </button>                 
+                                                     <button>확인 </button>                 
                             </div>
                         </div>
                     

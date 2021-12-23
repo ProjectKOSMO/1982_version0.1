@@ -49,10 +49,17 @@ public class OwnerDAOImpl implements OwnerDAO{
 		return mybatis.selectList("owner.ownerBoardList", vo);
 	}
 	
+	
+	
 	@Override
 	public int shopInsert(OwnerVO vo) {
 		System.out.println("===>  MemberMapper ownerInsert() 호출");
 		return mybatis.insert("owner.shopInsert", vo);
+	}
+	
+	public int shopUpdate(OwnerVO vo) {
+		System.out.println("===>  MemberMapper ownerInsert() 호출");
+		return mybatis.insert("owner.shopUpdate", vo);
 	}
 	
 	@Override
