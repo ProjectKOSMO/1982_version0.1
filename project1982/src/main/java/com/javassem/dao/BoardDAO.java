@@ -1,21 +1,19 @@
 package com.javassem.dao;
 
+import com.javassem.domain.BoardVO;
 import java.util.HashMap;
 import java.util.List;
 
-import com.javassem.domain.BoardVO;
-
 public interface BoardDAO {
-	public void insertBoard(BoardVO vo);
-
-	public void updateBoard(BoardVO vo) ;
-
-	public void deleteBoard(BoardVO vo);
-
-	public BoardVO getBoard(BoardVO vo) ;
-
-	public List<BoardVO> getBoardList(HashMap map) ;
-	
-	public int countBoard();
-	
+  void insertBoard(BoardVO paramBoardVO);
+  
+  void updateBoard(BoardVO paramBoardVO);
+  
+  void deleteBoard(BoardVO paramBoardVO);
+  
+  BoardVO getBoard(BoardVO paramBoardVO);
+  
+  List<BoardVO> getBoardList(HashMap paramHashMap);
+  
+  int countBoard();
 }

@@ -1,5 +1,3 @@
 package com.javassem.domain;
 
-public class WithdrawVO {
-
-}
+public class WithdrawVO {}

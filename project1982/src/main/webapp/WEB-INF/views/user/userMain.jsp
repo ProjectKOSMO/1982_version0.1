@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
    	<link type="text/css" href="/project1982/resources/css/4_main.css" rel="stylesheet"/>
 </head>
+<style>
+.nothing{
+	display:none;
+}
+</style>
 <body>
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
@@ -53,9 +58,11 @@
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7566b035bd910a38bdab34848a049ad8&libraries=services"></script>
 					<script src='/project1982/resources/js/locationExample4.js' type="text/javascript"></script>
 
-                  <div id="searchPost" style="width:700px;height:500px">  
+                  <div>  
                        <div class="main_right"></div>
                        <div class="main_right"></div>
+                  </div>
+                  <div>
                        <div class="main_right"></div>
                        <div class="main_right"></div>
                   </div>
@@ -69,9 +76,9 @@
             </div>
 
 			<form name="search-form" method='get'>
-					<input type='text' name='CenterLocation_y' id='CenterLocation_y' >
-					<input type='text' name='CenterLocation_x' id='CenterLocation_x' >
-					<input type= 'text' name='pageNum' id='pageNum'>
+					<input class="nothing" type='text' name='CenterLocation_y' id='CenterLocation_y' >
+					<input class="nothing" type='text' name='CenterLocation_x' id='CenterLocation_x' >
+					<input class="nothing" type= 'text' name='pageNum' id='pageNum'>
 					<select name='searchCondition'>
 						<option value='shop_name'>가게이름</option>
 						<option value='road_address'>도로명 주소</option>

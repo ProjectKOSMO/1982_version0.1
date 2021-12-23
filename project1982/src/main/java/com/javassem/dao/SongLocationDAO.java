@@ -1,11 +1,12 @@
 package com.javassem.dao;
 
+import com.javassem.domain.SongLocationVO;
 import java.util.List;
 
-import com.javassem.domain.SongLocationVO;
-
 public interface SongLocationDAO {
-	public List<SongLocationVO>  getLocationList(SongLocationVO vo);
-	public void insertLocation(SongLocationVO vo);
-	public int getLocationListCount(SongLocationVO vo);
+  List<SongLocationVO> getLocationList(SongLocationVO paramSongLocationVO);
+  
+  void insertLocation(SongLocationVO paramSongLocationVO);
+  
+  int getLocationListCount(SongLocationVO paramSongLocationVO);
 }

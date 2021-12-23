@@ -20,7 +20,7 @@
        <header class="header" >
             <!-- 로고-->
                <div>
-               <a href="../main.do" class="logo">
+               <a href="#" class="logo">
                    <h1>1982</h1>
                </a>
                </div>
@@ -38,7 +38,7 @@
                    마이페이지
                    </a>
                    <!--카트  -->
-                   <a href="../board.do">
+                   <a href="/project1982/owner/ownerBoard.do">
                    고객센터
                        <!--카트 상품-->
                        
@@ -50,7 +50,7 @@
     <!-- 메인 ---------------------------------------------------------------->
         <main>
       
-        <form action="ownerUpdate" method='post' enctype="multipart/form-data"> 
+        <form action="ownerUpdate.do" method='post' enctype="multipart/form-data"> 
             <ul class="left_nav">
                 <li class="left_nav_text"><a class="home" href="#">홈</a></li>
                 <li class="left_nav_text"><a href="#">새소식</a></li>
