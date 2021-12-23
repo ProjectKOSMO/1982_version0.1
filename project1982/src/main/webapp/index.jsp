@@ -29,6 +29,7 @@
                 <li class="nav-item"><a class="nav-link" href="admin/admin_login.do">관리자로그인</a></li>
                 
             </ul>
+            
             <!-- 오른쪽 메뉴-->
             <div class="right-menu">
                 <!--검색 -->

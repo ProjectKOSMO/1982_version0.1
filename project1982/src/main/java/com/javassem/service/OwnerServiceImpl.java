@@ -46,6 +46,12 @@ public class OwnerServiceImpl implements OwnerService {
 
 		return ownerDAO.shopInsert(vo);
 	}
+	
+	 public int updateShopInfo(OwnerVO vo){
+		   
+		   return ownerDAO.shopUpdate(vo);
+	   }
+
 
 	public String selectShopInfo(OwnerVO vo) {
 		return ownerDAO.shopSelect(vo);
