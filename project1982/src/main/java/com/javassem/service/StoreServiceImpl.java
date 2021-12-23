@@ -9,14 +9,9 @@ import org.springframework.stereotype.Service;
 import com.javassem.dao.StoreDAOImpl;
 import com.javassem.domain.StoreVO;
 
-@Service("storeService")
-public class StoreServiceImpl implements StoreService{
+
+public class StoreServiceImpl {
 	
-	@Autowired
-	private StoreDAOImpl storeDAO;
-	
-	public List<StoreVO> StoreList(StoreVO vo) {
-		return storeDAO.StoreList(vo);
-	}
+
 	
 }

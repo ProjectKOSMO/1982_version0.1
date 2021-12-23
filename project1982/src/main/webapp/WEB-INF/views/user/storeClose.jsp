@@ -46,28 +46,26 @@
    
            </header>
  <!-- 메인 ---------------------------------------------------------------->
-     <!--  <form action = "StoreList.do" method ="get">
-      <section class="section" >
-          <h1>업체 검색</h1>
-          <div class="select">
-          <select  name="sido1" id="sido1" >
-              
-          </select>
-          <select name="gugun1" id="gugun1">
-          
-          </select>
-          
-        <button class="search_button">검색</button>
-        </div>
-    </section>
-     </form> -->
+     <div>
+     	<form name="search-form" autocomplete="off">
+     		<select name="type">
+     			<option selected value="">검색 내용 선택</option>
+     			<option value="title">제목</option>
+     			<option value="content">내용</option>
+     			<option value="content">작성자</option>
+     		</select>
+     		<input type="text" name="keyword" value=""></input>
+     		<input type="button" onclick="getSearchList()" class="btn btn-outline-primary mr-2" value="검색"></input>
+     		
+     	</form>
+     </div>
      	
      
     <section class="section_main">
            
       <div id="mainWrapper">
 
-          <ul>
+          
               <!-- 게시판 제목 -->
               
              
@@ -88,38 +86,26 @@
                       </li>
                       <!-- 게시물이 출력될 영역 -->
                        
-                         <c:forEach items="${StoreList}" var="store">
+                        <c:forEach items="${ShopList}" var="shop">
 							<li>
 							<ul>
 						
-								<li class="left">${store.storeid }</li>
-								<li class="left">${store.storeaddr }</li>
-								<li class="left">${store.storedate }</li>
-								<li class="left">${store.storepay }</li>
+								<li class="left">${shop.shopName }</li>
+								<li class="left">${shop.shopaddr }</li>
+								<li class="left">${shop.shopdate }</li>
+								<li class="left">${shop.shoppay }</li>
 								<button class="button">지원</button>
 							</ul>
 							</li>
-							</c:forEach>                               
+						</c:forEach>                            
                   </ul>
               </li>
   
               <!-- 게시판 페이징 영역 -->
-              <li>
-                  <div id="divPaging">
-                      <div>◀</div>
-                         <div><b>1</b></div>
-                      <div>2</div>
-                      <div>3</div>
-                      <div>4</div>
-                      <div>5</div>
-                      <div>▶</div>
-                  </div>
-              </li>
-  
-              <!-- 검색 폼 영역 -->
-         
-  
-          </ul>
+        
+	
+	
+          
       </div>
 
   </section>
@@ -248,4 +234,4 @@
 });
 </script>
 </body>
-</html>
+</html> 

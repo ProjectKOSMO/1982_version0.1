@@ -9,16 +9,10 @@ import org.springframework.stereotype.Repository;
 
 import com.javassem.domain.StoreVO;
 
-@Repository("storeDAO")
-public class StoreDAOImpl implements StoreDAO {
+
+public class StoreDAOImpl {
 	
-	@Autowired
-	private SqlSessionTemplate mybatis;
-	
-	public List<StoreVO> StoreList(StoreVO vo) {
-		System.out.println("===> Mybatis StoreList() 호출");
-		return mybatis.selectList("StoreDAO.StoreList", vo);
-	}
+
 	
 	
 	
