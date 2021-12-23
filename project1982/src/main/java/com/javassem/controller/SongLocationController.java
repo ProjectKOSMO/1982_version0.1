@@ -24,14 +24,12 @@ public class SongLocationController {
 	@GetMapping("getLocationList")
 	@ResponseBody
 	public List<SongLocationVO> SelectAll(
-			@RequestParam("searchCondition") String searchCondition,
-			@RequestParam("searchKeyword") String searchKeyword,
+			@RequestParam("searchCondition") String searchCondition,@RequestParam("searchKeyword") String searchKeyword,
 			@RequestParam("pageNum") String pageNum,SongLocationVO vo){
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>getLocationList");
 		vo.setSearchCondition(searchCondition);
 		vo.setSearchKeyword(searchKeyword);
 		int pageNumber;
-		if(pageNum=="") {
+		if(pageNum=="") { 
 			pageNumber=0;
 		}else {
 			pageNumber=Integer.parseInt(pageNum)-1;
@@ -50,19 +48,22 @@ public class SongLocationController {
 			System.out.println(y);
 			
 			if(y<1) {
-				if(pagePost>maxPagePost*pageNumber&&pagePost<maxPagePost*(pageNumber+1)+1) {
-					result.add(list.get(i));	
+				if(pagePost>(maxPagePost*pageNumber)-1&&pagePost<maxPagePost*(pageNumber+1)) {
+					result.add(list.get(i));
 			}
 				pagePost+=1;
 		}//1234
 		}
 		System.out.println(result.size());
+		
 		for(int i = 0; i<result.size();i++) {
 			System.out.println(result.get(i).getShop_name());
 		}
 		
 		pagePost=0;
-		
+		try {
+		Thread.sleep(500);
+		}catch(Exception e){}
 		return result;
 	}
 	//마지막 페이지 처리용
@@ -90,22 +91,22 @@ public class SongLocationController {
 		
 		for(int i = 0; i<list.size();i++) {
 			double y=distance(vo.getCenterLocation_x(),vo.getCenterLocation_y(),list.get(i).getLocation_x(),list.get(i).getLocation_y());
-			System.out.println(list.get(i).getShop_name());
-			System.out.println(y);
 			
 			if(y<1) {
 				result.add(list.get(i));	
 		}//1234
 		}
 		System.out.println(result.size());
-		for(int i = 0; i<result.size();i++) {
-			System.out.println(result.get(i).getShop_name());
-		}
 		
-		int max=(int) Math.ceil(result.size()/4);
+		int max=(int) Math.ceil((double)result.size()/4);
+		
+		System.out.println("더블형");
+		System.out.println(result.size());
 		
 		vo.setMaxPage(max);
 		
+		System.out.println("페이지 수");
+		System.out.println(max);
 		return vo;
 	}
 	

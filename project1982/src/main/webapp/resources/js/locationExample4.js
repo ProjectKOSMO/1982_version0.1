@@ -12,7 +12,7 @@ var infowindows=[];	//인포윈도우를 담는 변수
 
 var block=0;				//페이지 나누기  12345/678910/1112131415
 
-var lastPage=1;
+var lastPage;
 
 var CenterMarker;
 var Centerinfowindow;
@@ -28,7 +28,7 @@ function MyLocation(){
 	            lon = position.coords.longitude; // 경도
 	        
 	        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-	            message = '<div style="padding:5px;">내 위치</div>'; // 인포윈도우에 표시될 내용입니다
+	            message = '<div style="padding:5px;">이곳을 중심으로 검색합니다.</div>'; // 인포윈도우에 표시될 내용입니다
 	        
 	        // 마커와 인포윈도우를 표시합니다
 	        
@@ -74,7 +74,7 @@ function Test3(){
 	var lon= $("#CenterLocation_x").val();
 	
 	var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치
-	            message = '<div style="padding:5px;">내 위치</div>'; // 인포윈도우에 표시될 내용입니다
+	            message = '<div style="padding:5px;">이곳을 중심으로 검색합니다.</div>'; // 인포윈도우에 표시될 내용입니다
 	        
 	        // 마커와 인포윈도우를 표시합니다
 	        
@@ -109,20 +109,18 @@ function Test3(){
 function Test(){
 	$.ajax({
 		type:'get',
-		url:'getLocationList',
+		url:'./getLocationList',
 		data:$("form[name=search-form]").serialize(),
 		async:false,
 		dataType:'json',
 		success:function(result){
-			 
-			 
+			
 			try{
 				for ( var i = 0; i < markers.length; i++ ) {
 		    	markers[i].setMap(null);
 		    	infowindows[i].setMap(null);
 					 }  
 				
-			
 				markers=[];
 				infowindows=[];
 				}catch(error){
@@ -137,7 +135,7 @@ function Test(){
 		            spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
 		            spriteOrigin : new kakao.maps.Point(0, (i*46)+10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
 		            offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
-		        }
+				    }
 				    
 				    // 마커 이미지를 생성합니다    
 				    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions); 
@@ -150,8 +148,6 @@ function Test(){
 				        image : markerImage // 마커 이미지 
 				    });
 				    
-				 
-
 				    var iwContent = '<div id="infomation" style="padding:5px;">'+ result[i].shop_name+'<br><a>'+result[i].shop_phone_number+'</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 				        iwPosition = new kakao.maps.LatLng(result[i].location_y, result[i].location_x); //인포윈도우 표시 위치입니다
 
@@ -167,8 +163,6 @@ function Test(){
 				    kakao.maps.event.addListener(markers[i], 'click', makeOverListener(map, markers[i], infowindows[i]));
 				    
 				    }
-				    
-				    console.log("1");
 
 				for(var i=0;i<markers.length; i++){
 			    	markers[i].setMap(map);
@@ -191,8 +185,7 @@ function Test(){
 				searchPost.appendChild(newDIV);
 				}
 		},
-		error:function(err){
-			console.log(err);
+		error:function(){
 			alert("실패");
 		}
 	})
@@ -202,7 +195,7 @@ function Test(){
 function Test2(){
 $.ajax({
 		type:'get',
-		url:'getLocationListCount',
+		url:'./getLocationListCount',
 		data:$("form[name=search-form]").serialize(),
 		async:false,
 		dataType:'json',
@@ -220,13 +213,12 @@ $.ajax({
 			};
 		
 		for(var i=block*5; i<(block+1)*5; i++){
-		
+		if(i==result.maxPage) {break};
 		    var newDIV = document.createElement("div");	//새로 생성된 div
 			    newDIV.setAttribute("class","numberPage");
 				var z=i+1;
 				newDIV.innerHTML="<a>"+z+"<a>";
 				searchPost.appendChild(newDIV);
-				if(i==result.maxPage) {break}
 		}
 		
 		if((block+1)*5<result.maxPage){
@@ -273,17 +265,10 @@ $(function(){
 	$("#divPagingMap").on("click", ".numberPage", function(){
 	var z=$(this).text();
 	console.log(z);
-	
-	Test2();
-	while(z>lastPage){
-	z=z-1;
-	if(z=1) {
-	block=Math.floor(z);
-	break;};
-	Test2();
-	}
-	
 	$("#pageNum").val(z);
+	Test2();
+	
+	
 	Test();
 	$("#pageNum").val(1);
 	});
@@ -292,18 +277,9 @@ $(function(){
 	$("#divPagingMap").on("click",".nextPage",function(){
 	var z = (block+1)*5+1;
 	block=block+1;
-	
-	Test2();
-	while(z>lastPage){
-	z=z-1;
-	if(z=1) {
-	block=Math.floor(z);
-	break;
-	}
-	Test2();
-	}
-	
 	$("#pageNum").val(z);
+	Test2();
+	
 	Test();
 	$("#pageNum").val(1);
 	});
@@ -312,18 +288,9 @@ $(function(){
 	$("#divPagingMap").on("click",".prevPage",function(){
 	var z = block*5;
 	block=block-1;
-	Test2();
-	
-	while(z>lastPage){
-	z=z-1;
-	if(z=1) {
-	block=Math.floor(z);
-	break;
-	}
-	Test2();
-	}
-	
 	$("#pageNum").val(z);
+	Test2();
+	
 	Test();
 	
 	$("#pageNum").val(1);
@@ -342,7 +309,7 @@ $(function(){
 	//검색 중심 위치 변경을 위한 함수
 	$("#moveCenterLocation").click(function(){
 	
-	openWin=window.open("locationExchange.do","childForm","width=1300, height=700, resizable = no, scrollbars = no");
+	openWin=window.open("locationExchange.jsp","childForm","width=1300, height=700, resizable = no, scrollbars = no");
 	
 	});
 	

@@ -314,6 +314,7 @@ $(function(){
 	var x= document.getElementById("location_x").value;
 	opener.document.getElementById("CenterLocation_y").value=y;
 	opener.document.getElementById("CenterLocation_x").value=x;
+	opener.block=0;
 	opener.Test3();
 	opener.Test();
 	opener.Test2();
