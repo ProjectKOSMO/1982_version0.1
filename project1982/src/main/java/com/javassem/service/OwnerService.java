@@ -1,21 +1,25 @@
 package com.javassem.service;
 
-import java.util.List;
-
 import com.javassem.domain.OwnerBoardVO;
 import com.javassem.domain.OwnerVO;
+import java.util.List;
 
 public interface OwnerService {
-	public OwnerVO idCheck_Login(OwnerVO vo);
-	public int ownerInsert(OwnerVO vo );
-	public String ownerDate(OwnerVO vo);
-	public int ownerBoardInsert(OwnerBoardVO vo);
-	
-	List<OwnerBoardVO> getOwnerBoardList(OwnerBoardVO vo);
-	
-	public int insertShopInfo(OwnerVO vo);
-	public int updateShopInfo(OwnerVO vo);
-	public String selectShopInfo(OwnerVO vo);
-	public List<OwnerVO> getList(OwnerVO vo);
-
+  OwnerVO idCheck_Login(OwnerVO paramOwnerVO);
+  
+  int ownerInsert(OwnerVO paramOwnerVO);
+  
+  String ownerDate(OwnerVO paramOwnerVO);
+  
+  int ownerBoardInsert(OwnerBoardVO paramOwnerBoardVO);
+  
+  List<OwnerBoardVO> getOwnerBoardList(OwnerBoardVO paramOwnerBoardVO);
+  
+  int insertShopInfo(OwnerVO paramOwnerVO);
+  
+  int updateShopInfo(OwnerVO paramOwnerVO);
+  
+  String selectShopInfo(OwnerVO paramOwnerVO);
+  
+  List<OwnerVO> getList(OwnerVO paramOwnerVO);
 }

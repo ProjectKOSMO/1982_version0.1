@@ -27,8 +27,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 구인공고 게시판 데이터 삽입 -->
 	<insert id="ownerBoardInsert" parameterType="com.javassem.domain.OwnerBoardVO">
-		INSERT INTO board_owner(normal_emergency, shopname, jobDate, jobTime_start, jobTime_end, need_Num, regDate)
-		VALUES(#{normal_emergency}, #{shopname}, #{jobDate}, #{jobTime_start}, #{jobTime_end}, #{need_Num}, now())
+		INSERT INTO board_owner(normal_emergency, shopname, shoppay, shopaddr, jobDate, jobTime_start, jobTime_end, need_Num, regDate)
+		VALUES(#{normal_emergency}, #{shopname}, #{shoppay}, #{shopaddr},#{jobDate}, #{jobTime_start}, #{jobTime_end}, #{need_Num}, now())
 	</insert>
 	
 	<!-- 구인공고 게시판 리스트 표기 -->
@@ -40,7 +40,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 업체 정보 추가 -->
 	<insert id="shopInsert" parameterType="OwnerVO">
-		INSERT INTO shopInfo(shopname, shopaddr, shoppn, shopcontent, shopdate, ownernum, si_fname,si_realname)
+		INSERT INTO shopInfo(shopname, shopaddr, shoppn, shopcontent, shopdate, ownernum, si_fname,si_realname  )
 		VALUES(#{shopname},#{shopaddr},#{shoppn},#{shopcontent}, now(), #{ownernum},#{si_fname}, #{si_realname});
 	</insert>
 

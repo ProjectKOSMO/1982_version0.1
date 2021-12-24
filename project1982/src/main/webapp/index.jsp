@@ -29,7 +29,6 @@
                 <li class="nav-item"><a class="nav-link" href="admin/admin_login.do">관리자로그인</a></li>
                 
             </ul>
-            
             <!-- 오른쪽 메뉴-->
             <div class="right-menu">
                 <!--검색 -->
@@ -163,7 +162,7 @@
                     <div class="right_address">
                         <p>
                             <span>주식회사 1982 |</span>
-                            <a href="#">
+                            <a href="/project1982/admin/admin_login.do">
 
                                 <span>대표이사 : 한세호 |</span>
                             </a>

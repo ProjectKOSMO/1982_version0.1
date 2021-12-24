@@ -126,21 +126,6 @@ div.minimalistBlack {
 
 /*------------------------------테이블   ----------------------*/
 
-table tr td{
-  border: 4px solid lightcoral;
-}
-table{
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  font-size: 80px;
-}
-.table_title{
-  display: flex;
-  justify-content: center;
-  font-size: 40px;
-  margin-top: 100px;
-}
 .store_button{
   width: 150px;
   height: 50px;
@@ -249,6 +234,13 @@ ul, li{
   background-color: lime;
   border-radius: 25px;
 }
-.hide{
-	display:none;
+
+.chart{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
 }
+
+
+

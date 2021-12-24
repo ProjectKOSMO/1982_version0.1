@@ -20,7 +20,7 @@
        <header class="header" >
             <!-- 로고-->
                <div>
-               <a href="../main.do" class="logo">
+               <a href="#" class="logo">
                    <h1>1982</h1>
                </a>
                </div>
@@ -38,7 +38,7 @@
                    마이페이지
                    </a>
                    <!--카트  -->
-                   <a href="../board.do">
+                   <a href="/project1982/owner/ownerBoard.do">
                    고객센터
                        <!--카트 상품-->
                        

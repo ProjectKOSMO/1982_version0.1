@@ -1,13 +1,11 @@
 package com.javassem.dao;
 
-import java.util.HashMap;
-import java.util.List;
-
 import com.javassem.domain.PagingVO;
 import com.javassem.domain.ParkBlackVO;
+import java.util.List;
 
 public interface ParkBlackDAO {
-	
-	int countBoard();
-	List<ParkBlackVO> getBlackList(PagingVO vo) ;
+  int countBoard();
+  
+  List<ParkBlackVO> getBlackList(PagingVO paramPagingVO);
 }

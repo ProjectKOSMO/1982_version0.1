@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"> -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css"> -->
-  	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
+  	<!-- <link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/> -->
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
 	<title>글 목록</title>
 </head>
@@ -29,6 +29,12 @@
 	}
 	a {
 		text-decoration: none;
+	}
+	.chart{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
 	}
 </style>
 <script>

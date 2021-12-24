@@ -118,11 +118,14 @@
                                 <input type="time" id="jobStart" name="jobTime_start" class="select_css"
                                     value="15:00:00">
                             </div>
+                             <div class="main_font salary">주소 :
+                                <input class="input_box" type="text" name="shopaddr" placeholder=" 상세하게 적어주세요">
+                            </div>
                             <div class="main_font">근무 종료 시간 :
                                 <input type="time" id="jobEnd" name="jobTime_end" class="select_css" value="23:00:00">
                             </div>
                             <div class="main_font salary">급여 :
-                                <input class="input_box" type="text" placeholder="* 상세하게 적어주세요">
+                                <input class="input_box" type="text" name="shoppay" placeholder=" 상세하게 적어주세요">
                             </div>
                             <div class="main_font">우대사항 :
                                 <input class="input_box" type="text" placeholder=" 내용을 입력해주세요">

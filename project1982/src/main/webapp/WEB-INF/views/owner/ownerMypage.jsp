@@ -23,7 +23,7 @@
        <header class="header" >
             <!-- 로고-->
                <div>
-               <a href="../main.do" class="logo">
+               <a href="#" class="logo">
                    <h1>1982</h1>
                </a>
                </div>
@@ -37,11 +37,11 @@
                     구인공고
                    </a>
                    <!--유저 -->
-                   <a href="/project1982/owner/ownerMypage" class="user">
+                   <a href="/project1982/owner/ownerMypage.do" class="user">
                    마이페이지
                    </a>
                    <!--카트  -->
-                   <a href="../board.do">
+                   <a href="/project1982/owner/ownerBoard.do">
                    고객센터
                        <!--카트 상품-->
                        
