@@ -43,7 +43,7 @@
 
 <body>
 
-    <form name="loginform" action="login.do" method="post" id="login-form">
+    <form name="loginform" action="userMain.do" method="post" id="login-form">
         <h1>1982 구직자</h1>
         <input name="userid" type="text" placeholder="Username" />
         <input name="userpass" type="password" placeholder="Password" />

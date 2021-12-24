@@ -38,7 +38,7 @@
 	</script>
 </head>
 <body>
-      <form action="userInsert.do" method="post" name="userinput" class="login-form">
+      <form action="userInsert.do" method="post" name="userinput" id="login-form">
         <h1>1982 구직자 - 회원가입</h1>
         <div>
 	        <input class="id_input" id = "userid" name="userid" type="text" placeholder="아이디를 입력하세요" onkeyup="IDConfirm()"/><br/>

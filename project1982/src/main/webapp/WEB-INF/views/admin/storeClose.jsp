@@ -29,7 +29,7 @@
                <!-- 오른쪽 메뉴-->
                <div class="right-menu">
                    
-                   <a href="admin/storeClose.do" class="search">
+                   <a href="/project1982/admin/storeClose.do" class="search">
                    일자리찾기
                    </a>
                    <a href="/project1982/admin/job_positing.do" class="search">

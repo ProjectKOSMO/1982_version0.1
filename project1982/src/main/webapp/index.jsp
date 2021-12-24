@@ -3,79 +3,74 @@
 
 <html>
 <head>
-	<title>intro.jsp</title>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
     <link type="text/css" href="/project1982/resources/css/1_intro.css" rel="stylesheet"/>
 </head>
 <body>
+ 
 
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
-         <!-- 로고-->
-            
-            <a href="main.do" class="logo">
-                <img src="./3.jpg"/>
-            </a>
-            
-            <!--메뉴-->   
-            <ul class="menu">
+            <!-- 로고-->
+               <div>
+               <a href="#" class="logo">
+                   <h1>1982</h1>
+               </a>
+               </div>
+               <!--메뉴--> 
+             
                
-                <li class="nav-item"><a class="nav-link" href="#soge">소개</a></li>
-                <li class="nav-item"><a class="nav-link" href="#team">팀 소개</a></li>
-                <li class="nav-item"><a class="nav-link" href="admin/admin_login.do">관리자로그인</a></li>
-                
-            </ul>
-            <!-- 오른쪽 메뉴-->
-            <div class="right-menu">
-                <!--검색 -->
-                <a href="#" class="search">
-                    <i class="fas fa-search"></i>
-                </a>
-                <!--유저 -->
-                <a href="#" class="user">
-                    <i class="far fa-user"></i>
-                </a>
-                <!--카트  -->
-                <a href="#">
-                    <i class="fas fa-shopping-cart">
-                    <!--카트 상품-->
-                    <span class="num-cart-product">0</span>
-                    </i>
-                </a>
-            </div>
-
-        </header>
+               <!-- 오른쪽 메뉴-->
+               <div class="right-menu">
+                   <!--검색 -->
+                   <a href="#section1" class="search">
+                    소개
+                   </a>
+                   <!--유저 -->
+                   <a href="#section2" class="user">
+                   팀 소개
+                   </a>
+                   <!--카트  -->
+                   <a href="#">
+                   
+                    찾아오시는길
+               
+                   </a>
+               </div>
+   
+           </header>
 
     <div class="main">
-        <a class="main_button" href="user/user_login.do">구직자 로그인</a>    
+         <a class="main_button" href="user/user_login.do">구직자 로그인</a>    
         <a class="main_button" href="owner/owner_login.do">사업자 로그인</a>
     </div>
 <!-- main------------------------------------------------------------------>
-    <section>
-        <div class="title" id="soge">1982 소개</div>
+    <section class="section1" id="section1">
+        <div class="title">1982 소개</div>
         <div class="title_wrap">
             <div>
                 <div class="circle"></div>
-                <p class="small">신뢰성</p>
+                <p class="small">협동성</p>
             </div>
             <div>
                 <div class="circle"></div>
-                <p class="small">신뢰성</p>
+                <p class="small">공정성</p>
             </div>
             <div>
                 <div class="circle"></div>
                 <p class="small">신뢰성</p>
             </div>
         </div>
-        <div class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae reiciendis molestiae inventore sint, veniam aperiam voluptatem cupiditate laborum ab, amet illo? Nostrum illum perferendis molestias placeat odit accusamus? Fugit, reprehenderit.</div>
+        <div class="lorem">코스모 학원에서 만나서 엄호식, 김승민 선생님께 배우고 어찌하다가 1조가 되었습니다. </div>
     </section>
 
-    <article>
-        <div class="title" id="team">팀 소개</div>
+    <article class="section2" id="section2">
+        <div class="title">팀 소개</div>
         <div class="title_wrap">
             <div>
                 <div class="circle"></div>
@@ -95,24 +90,21 @@
             </div>
             <div>
                 <div class="circle"></div>
-                <p class="small">신뢰성</p>
+                <p class="small">고성훈</p>
             </div>
             <div>
                 <div class="circle"></div>
-                <p class="small">신뢰성</p>
+                <p class="small">박준배</p>
             </div>
             <div>
                 <div class="circle"></div>
-                <p class="small">신뢰성</p>
+                <p class="small">최혜정</p>
             </div>
             <div>
                 <div class="circle"></div>
-                <p class="small">신뢰성</p>
+                <p class="small">백강현</p>
             </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">신뢰성</p>
-            </div>
+            
         </div>
     </article>
 
@@ -162,7 +154,7 @@
                     <div class="right_address">
                         <p>
                             <span>주식회사 1982 |</span>
-                            <a href="/project1982/admin/admin_login.do">
+                            <a href="admin/admin_login.do">
 
                                 <span>대표이사 : 한세호 |</span>
                             </a>

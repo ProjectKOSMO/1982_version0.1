@@ -44,7 +44,8 @@ public class UserBoardController {
       nowPage = "1";
     } else if (cntPerPage == null) {
       cntPerPage = "5";
-    } 
+    }
+    
     vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
     map.put("searchCondition", searchCondition);
     map.put("searchKeyword", searchKeyword);

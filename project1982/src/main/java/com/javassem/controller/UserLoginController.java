@@ -1,3 +1,5 @@
+
+
 package com.javassem.controller;
 
 import com.javassem.domain.UserVO;
@@ -11,35 +13,41 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping({"user"})
 public class UserLoginController {
-  @Autowired
-  public UserService userService;
-  
-  @RequestMapping({"{step}.do"})
-  public String userJoin(@PathVariable String step) {
-    return "/user/" + step;
-  }
-  
-  @RequestMapping({"userInsert.do"})
-  public String userinsert(UserVO vo) {
-    this.userService.userInsert(vo);
-    return "redirect:user_login.do";
-  }
-  
-  @RequestMapping({"login.do"})
-  public String userLogin(UserVO vo) {
-    UserVO result = this.userService.idCheck_Login(vo);
-    if (result == null)
-      return "redirect:user_login.do"; 
-    return "user/userMain";
-  }
-  
-  @RequestMapping(value = {"idCheck.do"}, produces = {"application/text; charset=UTF-8"})
-  @ResponseBody
-  public String idCheck(UserVO vo) {
-    UserVO result = this.userService.idCheck_Login(vo);
-    String message = "존재하지 않는 아이디입니다";
-    if (result != null)
-      message = "존재하는 아이디입니다."; 
-    return message;
-  }
+    @Autowired
+    public UserService userService;
+
+    public UserLoginController() {
+    }
+
+    @RequestMapping({"{step}.do"})
+    public String userJoin(@PathVariable String step) {
+        return "/user/" + step;
+    }
+
+    @RequestMapping({"userInsert.do"})
+    public String userinsert(UserVO vo) {
+        this.userService.userInsert(vo);
+        return "redirect:user_login.do";
+    }
+
+    @RequestMapping({"login.do"})
+    public String userLogin(UserVO vo) {
+        UserVO result = this.userService.idCheck_Login(vo);
+        return result == null ? "redirect:user_login.do" : "userMain";
+    }
+
+    @RequestMapping(
+        value = {"idCheck.do"},
+        produces = {"application/text; charset=UTF-8"}
+    )
+    @ResponseBody
+    public String idCheck(UserVO vo) {
+        UserVO result = this.userService.idCheck_Login(vo);
+        String message = "사용가능한 아이디 입니다.";
+        if (result != null) {
+            message = "이미 사용중인 아이디 입니다.";
+        }
+
+        return message;
+    }
 }
